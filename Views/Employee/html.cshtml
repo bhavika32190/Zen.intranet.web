@@ -1,0 +1,34 @@
+﻿@using Zen.intranet.web.Controllers
+@model HtmlHelperModel
+@{
+    ViewBag.Title = "html";
+}
+@Html.Partial("_MenuBar")
+<h2>html</h2>
+
+@Html.BeginForm()
+{
+
+    @Html.ActionLink("List of Employee", "Index")
+    <br />
+    @Html.TextBoxFor(model => model.Details)
+    <br>
+    @Html.LabelFor(model => model.Details) : @Html.TextBoxFor(model => model.Details)
+    <br />
+    @Html.LabelFor(model => model.Id) : @Html.PasswordFor(model => model.Id)
+    <br />
+    @Html.LabelFor(model => model.IsActive) : @Html.CheckBoxFor(model => model.IsActive)
+
+
+    @ViewBag.Date
+    <br>
+    @{
+        foreach (string x in @ViewBag.tp)
+        {
+            <label>@x</label>
+        }
+    }
+
+<input type="Submit" value="save" />
+
+}
